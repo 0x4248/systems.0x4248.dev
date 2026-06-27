@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4248 Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Colors */
+      --bg:      #000000;
+      --white:   #ffffff;
+      --dim:     rgb(189, 189, 189);
+      --dimmer:  rgba(197, 197, 197, 0.25);
+      --rule:    rgba(239, 239, 239, 0.1);
+      --hover:   rgba(239, 239, 239, 0.04);
+      
+      /* Typography */
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-serif: 'Lora', Georgia, serif;
+      --font-mono: 'Orbitron', monospace;
+      
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      
+      /* Layout */
+      --max-width: 900px;
+      --max-width-wide: 1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem var(--space-md);
+      border-bottom: 1px solid var(--rule);
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(14px);
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      color: var(--white);
+      font-family: var(--font-mono);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-md);
+      list-style: none;
+      font-weight: 500;
+      font-family: var(--font-sans);
+    }
+
+    .nav-links a {
+      color: var(--dim);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-md);
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      margin-bottom: var(--space-md);
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: var(--space-xs);
+    }
+
+    p {
+      color: var(--dim);
+      line-height: 1.8;
+      margin-bottom: var(--space-sm);
+    }
+
+    .mainHero {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .mainHero .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(1);
+      z-index: -1;
+      animation: heroImageFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.2s;
+    }
+
+    .mainHero h1 {
+        opacity: 0;
+        animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .mainHero p {
+        font-size: 1.2rem;
+        color: var(--white);
+        opacity: 0;
+        animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.2s;
+    }
+
+    .mainHero .hero-background {
+        opacity: 1;
+        filter: brightness(0.0);
+    }
+
+    .mainHero-content {
+        max-width: var(--max-width);
+        text-align: left;
+    }
+
+    .scroll-prompt {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.8rem;
+        color: var(--dim);
+        text-align: center;
+        width: 100%;
+        color: white;
+        animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards 1.4s;
+    }
+
+    .hero {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-lg);
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .hero-content {
+        flex: 1 1 400px;
+        max-width: var(--max-width);
+    }
+
+    .hero-sideImage {
+        flex: 1 1 400px;
+        max-width: var(--max-width);
+    }
+
+    .logo-font {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes heroImageFadeIn {
+        0% {
+            opacity: 0;
+            transform: scale(1.05);
+            filter: brightness(0);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+            filter: brightness(0.3);
+        }
+    }
+    
+    .statisticsSection {
+        text-align: center;
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .statisticsGrid {
+        display: flex;
+        gap: var(--space-lg);
+        justify-content: center;
+        margin-top: var(--space-lg);
+        flex-wrap: wrap;
+    }
+
+    .statisticItem {
+        flex: 1 1 200px;
+        max-width: 250px;
+    }
+
+    .statisticItem h3 {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-style: normal;
+        font-size: 2rem;
+        color: var(--white);
+    }
+
+    .iconGrid {
+        display: flex;
+        gap: var(--space-lg);
+        justify-content: center;
+        margin-top: var(--space-lg);
+        flex-wrap: wrap;
+    }
+
+    .iconGrid img {
+        /* black icons */
+        filter: invert(100%) sepia(100%) grayscale(100%) brightness(20000%);
+        transition: filter 0.3s;
+    }
+
+    button {
+        background-color: transparent;
+        color: var(--white);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-family: var(--font-sans);
+        font-weight: 500;
+        cursor: pointer;
+        border: 1px solid var(--dim);
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
+    .statsWider .statisticItem {
+        flex: 1 1 300px;
+        max-width: 400px;
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--dim);
+    }
+
+    .logo-foot {
+        opacity: 0.4;
+        font-size: 100px;
+        font-family: var(--font-mono);
+        /* no fill */
+        color: transparent;
+        /* stroke */
+        -webkit-text-stroke: 2px white;
+        
+    }
+  </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#" class="nav-logo mono">4248 SYSTEMS</a>
+        <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#datasystem">DataSystem</a></li>
+        </ul>
+    </nav>
+
+    <div class="mainHero">
+        <img src="https://images.unsplash.com/photo-1518735391375-e4745c43c4b9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="hero-background">
+        <div class="mainHero-content">
+            <h1>Building Reliable Systems, Developed for the Future.</h1>
+            <p>4248 Systems is an independent systems engineering and research initiative focused on networking, infrastructure, distributed services, and platform architecture.</p>
+        </div>
+        <p class="scroll-prompt">Scroll down, to learn more.</p>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h2 id="about">About 4248 Systems</h2>
+            <p>4248 Systems is my personal sub-brand of 0x4248, focused on systems engineering and research relating to networking and computer data systems.
+            <br>
+            4248 Systems isnt a company, charity or non profit, but rather a personal initiative to explore and research the field of networks and distributed systems. The goal of 4248 Systems is to build an enterprise grade homelab and learn how the real world systems are built, and how they operate.
+            </p>
+        </div>
+        <div class="hero-sideImage">
+            <img src="/img/logo-large.png" alt="About Us Image" style="width: 100%; height: auto; border-radius: 8px;">
+        </div>
+    </div>
+
+    <h2 style="text-align: center; margin-top: var(--space-lg);">Powered by a diverse set of hardware.</h2>
+    <div class="iconGrid">
+        <img src="/icons/intel.svg" alt="Intel Logo" width="80">
+        <img src="/icons/mikrotik.svg" alt="Mikrotik Logo" width="80">
+        <img src="/icons/nvidia.svg" alt="NVIDIA Logo" width="80">
+        <img src="/icons/samsung.svg" alt="Samsung Logo" width="80">
+        <img src="/icons/fujitsu.svg" alt="Fujitsu Logo" width="80">
+        <img src="/icons/dell.svg" alt="Dell Logo" width="80">
+        <img src="/icons/hp.svg" alt="HP Logo" width="80">
+    </div>
+
+
+    <div class="hero">
+        <div class="hero-sideImage">
+            <img src="/img/server.jpeg" alt="Server Image" style="width: 100%; height: auto; border-radius: 8px;">
+        </div>
+        <div class="hero-content">
+            <h2 class="logo-font">4248 DATASYSTEM</h2>
+            <p>The 4248 DataSystem is what I have called my homelab which contains 6 servers, 2 network switches, and 2 routers. The DataSystem uses 3 recycled office computers and are upgraded and repurposed to be used as servers. The other 3 servers are a cluster of low power raspberry Pi 4s and 5s which are used for testing and low power workloads. DataSystem is designed from thr ground up to be low power and reliable.</p>
+            <hr>
+            <br>
+            <h2 class="logo-font">4248 SRDG</h2>
+            <p>The 4248 Systems Research and Development Group (SRDG) is a research initiative focused on networking, infrastructure, distributed services, and platform architecture. The SRDG is a personal</p>
+            <br>
+            <button>GO TO SRDG.NET</button> <button>GITHUB</button>
+        </div>
+    </div>
+
+    <div class="statisticsSection">
+        <h2>A homelab that isnt just serious, but practical.</h2>
+        <div class="statisticsGrid">
+            <div class="statisticItem">
+                <h3>118GB</h3>
+                <p>Combined RAM</p>
+            </div>
+            <div class="statisticItem">
+                <h3>20TiB</h3>
+                <p>Total Storage (10TiB active)</p>
+            </div>
+            <div class="statisticItem">
+                <h3>OVER 25</h3>
+                <p>Virtual Machines and Containers</p>
+            </div>
+            <div class="statisticItem">
+                <h3>24 CORES</h3>
+                <p>Combined CPU Power</p>
+            </div>
+    </div>
+
+    <div class="statisticsSection statsWider">
+        <br style="margin-bottom: var(--space-lg);">
+        <hr style="border: 1px solid var(--rule); margin-bottom: var(--space-lg);">
+        <br style="margin-bottom: var(--space-lg);">
+        <h2>Primary Projects</h2>
+        <div class="statisticsGrid">
+            <div class="statisticItem">
+                <h3>4248 NetSonar</h3>
+                <p>The web inteligence radar.</p>
+                <button>GO TO NETSONAR</button>
+            </div>
+            <div class="statisticItem">
+                <h3>4248 ICM</h3>
+                <p>Infrastructure Configuration Management. A centralised configuration management system like MDM for your entire network.</p>
+                <strong style="letter-spacing: 2px;">COMING SOON</strong>
+            </div>
+            <div class="statisticItem">
+                <h3>PULSEWATCH</h3>
+                <p>A system and network monitoring and alerting system. The low power threat detection and intelligence system for your network.</p>
+                <strong style="letter-spacing: 2px;">COMING SOON</strong>
+            </div>
+            <div class="statisticItem">
+                <h3>4248 WIS</h3>
+                <p>Web Infastructure Services. A system to power websites with easy deployment.</p>
+                <strong style="letter-spacing: 2px;">COMING SOON</strong>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <br style="margin-bottom: 10rem;">
+        <span class="logo-foot">4248 SYSTEMS</span>
+        <br style="margin-bottom: 5rem;">
+        <p>&copy; 2024 4248 Systems. A part of 0x4248. All rights reserved unless explicit permission is given or content is under another license.<br>Some software maybe strictly proprietary and not open source. 4248 Systems is not a company, charity or non profit. Systems Research and Development Group (SRDG) is a research collective, not a company, charity or non profit.</p>
+    </div>
+
+</body>
+</html>
