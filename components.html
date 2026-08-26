@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Components | 4248 Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="nav"></div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Components</h1>
+      <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. This page shows every reusable building block available in the design system, so new pages are quick to assemble.</p>
+      <div class="hero-actions">
+        <a href="#buttons" class="btn btn-primary">Jump to buttons</a>
+        <a href="#cards" class="btn">Jump to cards</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section reveal">
+    <div class="container">
+      <div class="tabs">
+        <a href="#typography" aria-current="page">Typography</a>
+        <a href="#letter-hero">Letter hero</a>
+        <a href="#buttons">Buttons</a>
+        <a href="#cards">Cards</a>
+        <a href="#stats">Stats</a>
+        <a href="#table">Table</a>
+        <a href="#misc">Misc</a>
+      </div>
+
+      <div id="typography">
+        <h2>Section heading</h2>
+        <h3>Sub heading</h3>
+        <h4>Minor heading</h4>
+        <p class="lede">Lede paragraph -- lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Body paragraph -- ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. <a class="text-link" href="#buttons">This is a text link</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="letter-hero">
+    <div class="container">
+      <div class="section-header">
+        <h2>Product mark</h2>
+        <p>Use <code>.letter-hero</code> to pair a giant monogram with a heading, paragraph and buttons -- handy for introducing a named product or API.</p>
+      </div>
+      <div class="letter-hero">
+        <div class="letter-hero-mark" role="img" aria-label="Zdb">Zdb</div>
+        <div>
+          <h3>Zdb</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Zdb is a fictional example API used here to demonstrate the letter hero component, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary">Read the docs</a>
+            <a href="#" class="btn">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="buttons">
+    <div class="container">
+      <div class="section-header">
+        <h2>Actions</h2>
+        <p>Two button styles: primary for the main action in a section, and default for secondary actions.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary">Primary button</a>
+        <a href="#" class="btn">Default button</a>
+        <button class="btn btn-primary" type="button">Primary (button)</button>
+        <button class="btn" type="button">Default (button)</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="cards">
+    <div class="container">
+      <div class="section-header">
+        <h2>Card grid</h2>
+        <p>Use <code>.grid</code> with <code>.grid-2</code>, <code>.grid-3</code> or <code>.grid-4</code>, filled with <code>.card</code> elements.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Lorem Ipsum</h3>
+          <p>Dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+          <span class="badge badge-live">Live</span>
+        </div>
+        <div class="card">
+          <h3>Dolor Sit Amet</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+          <span class="badge">Coming soon</span>
+        </div>
+        <div class="card">
+          <h3>Consectetur</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p>
+          <span class="badge">Coming soon</span>
+        </div>
+      </div>
+
+      <h3 class="mt-lg">Split media</h3>
+      <p>Use <code>.split</code> for a two column, image-and-text layout.</p>
+      <div class="split mt-lg">
+        <div>
+          <h3>Excepteur sint occaecat</h3>
+          <p>Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+        </div>
+        <div class="logo-row">
+          <img src="icons/intel.svg" alt="Intel">
+          <img src="icons/dell.svg" alt="Dell">
+          <img src="icons/hp.svg" alt="HP">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="stats">
+    <div class="container">
+      <div class="section-header">
+        <h2>Stat grid</h2>
+        <p>Use <code>.stats</code> containing <code>.stat</code> blocks to highlight key figures.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value">128</div>
+          <div class="stat-label">Lorem ipsum</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">42TB</div>
+          <div class="stat-label">Dolor sit amet</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">99.9%</div>
+          <div class="stat-label">Consectetur adipiscing</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">Sed do eiusmod</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="table">
+    <div class="container">
+      <div class="section-header">
+        <h2>Data table</h2>
+        <p>Use the <code>.table</code> class for tabular data.</p>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lorem</td>
+            <td><span class="badge badge-live">Live</span></td>
+            <td>Ipsum dolor sit amet.</td>
+          </tr>
+          <tr>
+            <td>Ipsum</td>
+            <td><span class="badge">Coming soon</span></td>
+            <td>Consectetur adipiscing elit.</td>
+          </tr>
+          <tr>
+            <td>Dolor</td>
+            <td><span class="badge">Coming soon</span></td>
+            <td>Sed do eiusmod tempor incididunt.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section reveal" id="misc">
+    <div class="container">
+      <div class="section-header">
+        <h2>Quote &amp; callout</h2>
+      </div>
+
+      <blockquote class="quote">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        <cite>-- Jane Doe, Example Title</cite>
+      </blockquote>
+
+      <div class="callout mt-lg">
+        <p>Callout -- use <code>.callout</code> to draw attention to a note or announcement, ut enim ad minim veniam, quis nostrud exercitation.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer reveal">
+    <div class="footer-logo">4248 SYSTEMS</div>
+    <p>&copy; 2026 4248 Systems. A part of 0x4248. All rights reserved unless explicit permission is given or content is under another license.</p>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script src="reveal.js"></script>
+</body>
+</html>
