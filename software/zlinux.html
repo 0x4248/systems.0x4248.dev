@@ -17,7 +17,9 @@
   <header class="hero">
     <div class="hero-inner">
       <h1>ZedLinux</h1>
-      <p class="lede">A Linux® Operating System, built on top of Debian with all the features for Z System. One file deployment script on a Debian-based system and its ready to go.</p>
+      <p class="lede"><b>This is power, unleashed.</b></p>
+      <p class="lede">A Linux® Operating System, built on top of Debian with all the features that makes it ready for anything<sup>*</sup></p>
+      
     </div>
     <br>
     <div class="callout">
@@ -25,107 +27,99 @@
     </div>
   </header>
 
+  <section class="section reveal" id="release-date">
+    <div class="container text-center">
+      <p>Officially releasing to the public.</p>
+      <h1>October 1st</h1>
+    </div>
+  </section>
+
   <section class="section reveal" id="about">
     <div class="container">
-        <div class="split">
-            <div>
-            <h2>About ZedLinux</h2>
-            <p>ZedLinux is a Linux® distribution built for Z System. It is based on Debian and includes all the necessary packages and configurations to run on Z System.</p>
-            </div>
-            <div>
-                <div class="card">
-                <h3>ZedLinux Enterprise</h3>
-                <p>Full ZedLinux installation with all the necessary packages and configurations.</p>
-                <div class="card">
-                <h3>ZedLinux Core</h3>
-                <p>Recuded size, still includes core networking utilities, COBOL, C, and Fortran support. Ideal for small LXC / Docker® containers.</p>
-                <div class="card">
-                <h3>ZedLinux Lite</h3>
-                <p>Minimal installation, only includes ZedLinux software, no additional packages.</p>
-            </div>
-            </div>
+      <div class="letter-hero">
+        <div class="letter-hero-mark" role="img" aria-label="ZED">ZED</div>
+        <div>
+          <h3>What is ZedLinux</h3>
+          <p>ZedLinux is an overlay install script that transforms a pre-installed Debian system into a powerful server or workstation operating system. Rather than shipping a new distro image, ZedLinux layers a curated toolkit, configuration set, and rebranding on top of a stock Debian base.</p>
+          <div class="hero-actions">
+            <a href="#features" class="btn btn-primary">Explore features</a>
+            <a href="#requirements" class="btn">Requirements</a>
+          </div>
         </div>
-    </div>
-  </section>
-
-  <section class="section reveal" id="download">
-    <div class="container">
-      <div class="section-header">
-        <h2>All your favorite sysadmin tools and core components included</h2>
-        <p>ZedLinux comes pre-installed with a comprehensive set of sysadmin tools and core components, making it ready for deployment on Z System.</p>
-        <br>
-        <ul>
-          <li>Remotely manage your server using Cockpit, Webmin, or SSH.</li>
-          <li>Control a ZedLinux cluster from the ZMP (Z Management Platform) <code>COMMING SOON</code></li>
-          <li>Use MVS TK5 for Mainframe emulation and development.</li>
-          <li>Use ZedLinux Auditor to monitor changes and compliance scripts</li>
-          <li>Includes core development tools for COBOL, C, and Fortran.</li>
-        </ul>
-    </div>
-    <div>
-  
-    </div>
-    </div>
-  </section>
-
-    <section class="section reveal" id="table">
-    <div class="container">
-      <div class="section-header">
-        <h2>The editions explained</h2>
-        <p>Use the table below to understand the different editions of ZedLinux and their features.</p>
       </div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Edition</th>
-            <th>RAM (Recommended)</th>
-            <th>Features</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ZedLinux Enterprise</td>
-            <td>20 GB</td>
-            <td>
-              <ul>
-                <li>Everything included</li>
-                <li>(Optional) Full desktop environment (XFCE)</li>
-                <li>Pre-installed sysadmin tools like Cockpit and Webmin.</li>
-                <li>In depth programming API's and libraries</li>
-              </ul>
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td>ZedLinux Core</td>
-            <td>8-16 GB</td>
-            <td>
-              <ul>
-                <li>Lighter installation compared to the full Enterprise edition</li>
-                <li>Mainframe emulation</li>
-                <li>Standard COBOL, C, Fortran and Python development tools included</li>
-                <li>No desktop environment</li>
-                <li>No UI applications</li>
-                <li>Slimmed down sysadmin toolkit</li>
-              </ul>
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td>ZedLinux Minimal</td>
-            <td>512 MB-4 GB</td>  
-            <td>Lightweight installation with only ZedLinux core system components and some administrative tools included. No LXC, VM, Mainframe, Dev tools or desktop environment.</td>
-            <td>FREE</td>
-          </tr>
-        </tbody>
-      </table>
+    </div>
+  </section>
+
+  <section class="section reveal" id="administration">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2>The system with everything you need</h2>
+          <p>No need to hassle with multiple installation, complex guides, or dependency management. ZedLinux asks you some questions and away it goes, setting up your system automatically.</p>
+          <h3>GUI or TUI? take your pick!</h3>
+          <p>ZedLinux provides an option to choose between a graphical user interface (GUI) or a text-based user interface (TUI) for system administration, allowing for GUI management programs as well as terminal-based tools to be used according to user preference.</p>
+        </div>
+        <div>
+          <img src="ui.png">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="requirements">
+    <div class="container">
+      <div class="split">
+        <div>
+          <img src="mvs.png">
+        </div>
+        <div>
+          <h2>Got an old COBOL or REXX project?</h2>
+          <p>ZedLinux provides the necessary tools and environment to maintain and develop legacy COBOL and REXX applications seamlessly. Using Hercules mainframe emulator along with the included terminal emulators, you can run and test your legacy applications as if you were on the original hardware.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section reveal" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>System administration made simple</h2>
+        <p>ZedLinux ships with a curated toolkit spanning languages, desktop tools, virtualization, networking, and security.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Languages & Dev Tools</h3>
+          <p>Python 3, C/C++, COBOL (GnuCOBOL 4), Fortran, Pascal, plus Make, CMake, Ninja, Autoconf, Automake, Bison, Flex and scientific libraries like NumPy, SciPy, Pandas, BLAS and LAPACK.</p>
+        </div>
+        <div class="card">
+          <h3>Desktop & Media</h3>
+          <p>XFCE Desktop Environment, Firefox ESR, VLC / mpv, GParted, GNOME Disk Utility and Timeshift system snapshots.</p>
+        </div>
+        <div class="card">
+          <h3>Remote Access & Virtualization</h3>
+          <p>xrdp, TigerVNC, Remmina, Cockpit web admin console, plus KVM, QEMU, Virt-Manager, Docker and libvirt.</p>
+        </div>
+        <div class="card">
+          <h3>Mainframe & Terminal Emulation</h3>
+          <p>MVS TK5 mainframe emulator with x3270 / c3270 terminal emulators for legacy Z System workflows.</p>
+        </div>
+        <div class="card">
+          <h3>Networking & Diagnostics</h3>
+          <p>Nmap, Masscan, arp-scan, Netdiscover, iperf3, mtr, traceroute, ethtool, plus bandwidth and system monitoring utilities.</p>
+        </div>
+        <div class="card">
+          <h3>Security</h3>
+          <p>UFW firewall, fail2ban intrusion prevention and OpenSSH client & server, hardened out of the box.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer class="footer reveal">
     <div class="footer-logo">4248 SYSTEMS</div>
     <p>&copy; 2026 4248 Systems. A part of 0x4248. All rights reserved unless explicit permission is given or content is under another license.<br>Some software may be strictly proprietary and not open source. 4248 Systems is not a company, charity or non-profit. Systems Research and Development Group (SRDG) is a research collective, not a company, charity or non-profit.</p>
+    <p><sup>*</sup>Ready for anything means having a comprehensive set of tools and utilities pre-installed, covering development, system administration, networking, security, and legacy system support.</p>
   </footer>
 
   <script src="/nav.js"></script>

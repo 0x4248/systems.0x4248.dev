@@ -50,13 +50,14 @@
           <p>A personal homelab built to explore networking, distributed systems, and platform architecture. With 90 cores, 200GB of RAM, and 30TiB of storage, it supports high-performance computing research without the power draw of a traditional server environment.</p>
         </div>
       </div>
-      <br>
-
+      <br><br>
+      <h2 style="text-align: center;">A quick run down of Z System</h2>
       <div class="stats">
+        
         <div class="stat">
           <div class="stat-value">200GB+</div>
           <div class="stat-label">Combined RAM</div>
-          <div class="stat-note">4GB VRAM, 200GB system RAM</div>
+          <div class="stat-note">10GB VRAM, 200GB system RAM</div>
         </div>
         <div class="stat">
           <div class="stat-value">30TiB</div>
@@ -74,6 +75,7 @@
         </div>
       </div>
       <br>
+      <br>
       <div class="split">
         <div>
           <h3 class="mt-lg">Z System architecture</h3>
@@ -81,10 +83,10 @@
         </div>
         <div>
           <div class="card">
-            <h3>Z System</h3>
+            <h3 style="text-align: center;">Z System</h3>
             <div class="card-small">
                 <h3>Compute</h3>
-                <pre>C, C-Nano, C-Micro, C-Apex, C-Omega</pre>
+                <pre>Nano, Micro, Apex, Omega</pre>
             </div>
 
             <div class="card-small">
@@ -100,9 +102,9 @@
             <div class="card-small">
                 <h3>Software</h3>
                 <pre>ZedLinux, Proxmox</pre>
-          </div>
+            </div>
 
-        </div>
+          </div>
 
         </div>
 
@@ -120,6 +122,21 @@
       </div>
   </section>
 
+  <section class="section reveal" id="zedlinux">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2>From hardware to software, its fully custom designed</h2>
+          <p>ZedLinux is an overlay install script that transforms a pre-installed Debian system into a powerful server or workstation operating system. Designed fully for Z System and many other servers</p>
+          <button class="btn btn-primary"><a href="/software/zlinux.html">Learn more</a></button>
+        </div>
+        <div>
+          <img src="/software/ui.png" alt="ZedLinux">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section reveal" id="projects">
     <div class="container">
       <div class="section-header">
@@ -127,10 +144,16 @@
       </div>
       <div class="grid grid-3">
         <div class="card">
+          <h3>ZedLinux</h3>
+          <p>The custom operating system for Z System.</p>
+          <span class="badge badge-live">Live</span>
+          <p class="mt-lg"><a class="text-link" href="/software/zlinux.html">Learn More &rarr;</a></p>
+        </div>
+        <div class="card">
           <h3>4248 NetRadar</h3>
           <p>The web intelligence radar.</p>
           <span class="badge badge-live">Live</span>
-          <p class="mt-lg"><a class="text-link" href="https://github.com/srdg/netradar">View on GitHub &rarr;</a></p>
+          <p class="mt-lg"><a class="text-link" href="https://github.com/srdg-net/NetRadar">View on GitHub &rarr;</a></p>
         </div>
         <div class="card">
           <h3>COMPASS</h3>
