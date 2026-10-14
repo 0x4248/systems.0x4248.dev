@@ -1,36 +1,44 @@
 <nav class="nav">
-  <a href="/index.html" class="nav-brand">4248 SYSTEMS</a>
+  <a href="/index.html" class="nav-brand brand-mark" aria-label="4248 Systems">
+    <span aria-hidden="true" id="yl">Y</span><span class="brand-y-flip" aria-hidden="true" id="yr">Y</span>
+  </a>
   <ul class="nav-links">
     <li class="has-dropdown">
-      <a>Infrastructure</a>
-        <div class="nav-dropdown">
-          <strong>Infrastructure, Networking and Layers 1-3</strong>
-            <a href="/infrastructure/detection.html" data-nav="infrastructure/detection.html">Detection & Response</a>
-                <br>
-                <i><small>International cyber threat intelligence and detection network</small></i>
-            </a>
-        </div>
+      <button type="button" class="nav-toggle" aria-expanded="false">Infrastructure</button>
+      <div class="nav-dropdown">
+        <p class="nav-dropdown-label">Infrastructure, Networking and Layers 1-3</p>
+        <a href="/infrastructure/quark.html" data-nav="infrastructure/quark.html">
+          Quark
+          <small>High-performance and high-demand machines</small>
+        </a>
+        <a href="/infrastructure/detection.html" data-nav="infrastructure/detection.html">
+          Detection &amp; Response
+          <small>International cyber threat intelligence and detection network</small>
+        </a>
+      </div>
     </li>
     <li class="has-dropdown">
-      <a>Software</a>
-        <div class="nav-dropdown">
-            <strong>Development and Software</strong>
-            <a href="/software/zlinux.html" data-nav="software/zlinux.html">ZedLinux
-                <br>
-                <i><small>This is power, unleashed.</small></i>
-            </a>
-            <a href="https://spaces.0x4248.dev" data-nav="https://spaces.0x4248.dev">Z Spaces</a>
-            <a href="/software/supercompute.html" data-nav="software/supercompute.html">SuperCompute</a>
-        </div>
+      <button type="button" class="nav-toggle" aria-expanded="false">Software</button>
+      <div class="nav-dropdown">
+        <p class="nav-dropdown-label">Development and Software</p>
+        <a href="/software/zlinux.html" data-nav="software/zlinux.html">
+          ZedLinux
+          <small>This is power, unleashed.</small>
+        </a>
+        <a href="/software/firefly.html" data-nav="software/firefly.html">
+          Firefly
+          <small>The Autonomous Intelligence Dataset Builder</small>
+        </a>
+        <a href="/software/quarkcompute.html" data-nav="software/quarkcompute.html">QuarkCompute</a>
+      </div>
     </li>
     <li class="has-dropdown">
-        <a>Z</a>
-        <div class="nav-dropdown">
-            <strong>Z System and Z Platform</strong>
-            <a href="/software/zlinux.html" data-nav="software/zlinux.html">ZedLinux</a>
-            <a href="https://spaces.0x4248.dev" data-nav="https://spaces.0x4248.dev">Z Spaces</a>
-        </div>
+      <button type="button" class="nav-toggle" aria-expanded="false">Z</button>
+      <div class="nav-dropdown">
+        <p class="nav-dropdown-label">Z System and Z Platform</p>
+        <a href="/software/zlinux.html" data-nav="software/zlinux.html">ZedLinux</a>
+        <a href="https://spaces.0x4248.dev" data-nav="https://spaces.0x4248.dev">Z Spaces</a>
+      </div>
     </li>
-
   </ul>
 </nav>

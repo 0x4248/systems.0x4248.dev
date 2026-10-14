@@ -137,12 +137,24 @@ p:last-child { margin-bottom: 0; }
 
 .nav-brand {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
-  letter-spacing: 0.06em;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
   font-weight: 600;
   text-decoration: none;
   color: var(--white);
   margin-right: var(--space-lg);
+  line-height: 1;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.02em;
+}
+
+.brand-y-flip {
+  display: inline-block;
+  transform: rotate(180deg);
 }
 
 .nav-links {
@@ -155,8 +167,10 @@ p:last-child { margin-bottom: 0; }
   position: relative;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-toggle {
   color: var(--dim);
+  font-family: inherit;
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -164,23 +178,45 @@ p:last-child { margin-bottom: 0; }
   transition: color 0.15s;
 }
 
-.nav-dropdown a {
-  color: var(--dim);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: underline;
-  transition: color 0.15s;
+.nav-toggle {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .nav-links a:hover,
-.nav-links a[aria-current="page"] { color: var(--white); }
+.nav-toggle:hover,
+.nav-links a[aria-current="page"],
+.has-dropdown.is-open > .nav-toggle { color: var(--white); }
 
-.has-dropdown > a::after {
+.nav-toggle::after {
   content: '\25be';
+  display: inline-block;
   margin-left: 0.35em;
   font-size: 0.7em;
   color: var(--dim);
+  transition: transform 0.15s ease;
+}
+
+.has-dropdown.is-open > .nav-toggle::after {
+  transform: rotate(180deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .has-dropdown::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 0.85rem;
+  }
+
+  .nav-links > li:last-child .nav-dropdown {
+    left: auto;
+    right: 0;
+  }
 }
 
 .nav-dropdown {
@@ -190,10 +226,9 @@ p:last-child { margin-bottom: 0; }
   z-index: 100;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  min-width: 260px;
-  margin-top: 0.9rem;
-  padding: var(--space-sm);
+  gap: 0.15rem;
+  min-width: 280px;
+  padding: 0.85rem;
   background: var(--panel);
   border: 1px solid var(--rule);
   opacity: 0;
@@ -202,25 +237,113 @@ p:last-child { margin-bottom: 0; }
   transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
 }
 
-.has-dropdown:hover .nav-dropdown,
-.has-dropdown:focus-within .nav-dropdown {
+.has-dropdown.is-open .nav-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
+.nav-dropdown-label {
+  margin: 0 0 0.35rem;
+  padding: 0 0.45rem;
+  color: var(--dim);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .nav-dropdown a {
-  font-size: 0.85rem;
+  display: block;
+  padding: 0.5rem 0.45rem;
+  color: var(--white);
+  font-size: 0.9rem;
   letter-spacing: normal;
   text-transform: none;
+  text-decoration: none;
+}
+
+.nav-dropdown a small {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--dim);
+  font-size: 0.75rem;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 1.4;
+}
+
+.nav-dropdown a:hover,
+.nav-dropdown a[aria-current="page"] {
+  background: var(--hover);
+  color: var(--white);
 }
 
 /* ---------- Hero ---------- */
 
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
   padding: 9rem var(--space-md) var(--space-xl);
   border-bottom: 1px solid var(--rule);
 }
+
+/* Right-side artwork. Invert, greyscale, then grade into --bg / --dim.
+   The plate is only as wide as the image, so the dim grade cannot show as a slab.
+   <div class="hero-art" style="--hero-art: url('/img/leaves.jpg')" aria-hidden="true"></div> */
+.hero-art {
+  --hero-art-position: right center;
+  --hero-art-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(46vw, 640px);
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--dim);
+  opacity: 0.7;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 38%, #000 72%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 38%, #000 72%);
+  animation: heroArtFadeIn 1s ease 0.5s backwards;
+}
+
+.image-color {
+  filter: grayscale(1) invert(1) contrast(1.08);
+}
+
+@keyframes heroArtFadeIn {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.hero-art::before,
+.hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.hero-art::before {
+  background-image: var(--hero-art);
+  background-repeat: no-repeat;
+  background-position: var(--hero-art-position);
+  background-size: var(--hero-art-size);
+  filter: grayscale(1) invert(1) contrast(1.08);
+  mix-blend-mode: multiply;
+}
+
+.hero-art::after {
+  background: var(--bg);
+  mix-blend-mode: lighten;
+}
+
+.hero > :not(.hero-art) {
+  position: relative;
+  z-index: 1;
+}
+
 
 .hero .callout {
   animation: heroFadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s backwards;
@@ -522,4 +645,30 @@ p:last-child { margin-bottom: 0; }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .split,
   .letter-hero { grid-template-columns: 1fr; }
+
+  .hero-art {
+    width: 72%;
+    opacity: 0.4;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.3) 42%, #000 78%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.3) 42%, #000 78%);
+  }
+
+  .nav-links {
+    gap: 0.85rem;
+    margin-left: auto;
+  }
+
+  .nav-toggle {
+    padding: 0.35rem 0;
+  }
+
+  .nav-links > li {
+    position: static;
+  }
+
+  .nav-links > li .nav-dropdown {
+    left: 0;
+    right: 0;
+    min-width: 0;
+  }
 }
